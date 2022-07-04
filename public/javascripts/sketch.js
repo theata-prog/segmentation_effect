@@ -7,12 +7,14 @@ sound = loadSound('/sounds/beat.wav');
 }
 
 function setup() {
-createCanvas(windowWidth, windowHeight);
+canvas = createCanvas(windowWidth, windowHeight);
 colorMode(HSB, 255);
 //FFTを初期化
 fft = new p5.FFT();
 //サウンドファイルをFFTの入力に
 fft.setInput(sound);
+canvas.position(0,0);//canvasをページの原点に固定
+canvas.style('z-index','-1');//canvasを後ろに移動する
 }
 
 function draw() {
