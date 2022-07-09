@@ -3,7 +3,7 @@ let fft;
 
 //サウンドファイルをプリロード
 function preload() {
-sound = loadSound('/sounds/beat.wav');
+sound = loadSound('../sounds/beat.wav');
 }
 
 function setup() {
