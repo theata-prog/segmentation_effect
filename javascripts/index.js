@@ -3,8 +3,8 @@ async function main() {
     const canvas = document.querySelector('canvas');
     const select = document.querySelector('select');
 
-    video.width = 1920;
-    video.height = 1080;
+    video.width = window.innerWidth;
+    video.height = window.innerHeight;
     const webcam = await tf.data.webcam(video);
     const model = await tf.loadGraphModel('model/model.json');
 
@@ -39,10 +39,10 @@ async function main() {
             canvas.style.background = 'rgb(255, 255, 255)';
         } else if (viewOption === 'green') {
             drawMatte(fgr.clone(), pha.clone(), canvas);
-            canvas.style.background = 'rgb(120, 255, 155)';
+            canvas.style.background = 'rgba(120, 255, 155, 0)';
         } else if (viewOption === 'alpha') {
             drawMatte(null, pha.clone(), canvas);
-            canvas.style.background = 'rgb(0, 0, 0)';
+            canvas.style.background = 'rgba(0, 0, 0, 0)';
         } else if (viewOption === 'foreground') {
             drawMatte(fgr.clone(), null, canvas);
         }
@@ -97,5 +97,6 @@ async function drawHidden(r, canvas) {
     canvas.getContext('2d').putImageData(imageData, 0, 0);
     rgba.dispose();
 }
+
 
 window.addEventListener('load', main);
