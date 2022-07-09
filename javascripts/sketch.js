@@ -3,7 +3,7 @@ let fft;
 
 //サウンドファイルをプリロード
 function preload() {
-sound = loadSound('../sounds/beat.wav');
+sound = loadSound('https://theata-prog.github.io/segmentation_effect/sounds/beat.wav');
 }
 
 function setup() {
