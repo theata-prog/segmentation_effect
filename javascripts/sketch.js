@@ -15,15 +15,14 @@ fft = new p5.FFT();
 fft.setInput(sound);
 canvas.position(0,0);//canvasをページの原点に固定
 canvas.style('z-index','-1');//canvasを後ろに移動する
+sound.loop();
 }
 
 function draw() {
   blendMode(BLEND);
   background(0);
   //マウスクリックでサウンドループ再生
-  if(mouseIsPressed && sound.isPlaying() == false){
-  sound.loop();
-  }
+
   noStroke();
   //FFT解析
   let spectrum = fft.analyze();
